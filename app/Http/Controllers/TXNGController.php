@@ -40,6 +40,17 @@ class TXNGController extends Controller
      */
     public function store(Request $request)
     {
+        $fileName = '';
+        if ($request->hasfile('image')) {
+            // File này có thực, bắt đầu đổi tên và move
+            $fileExtension = $request->file('image')->getClientOriginalExtension(); // Lấy . của file
+            // Filename cực shock để khỏi bị trùng
+            $fileName = time() . "_" . rand(0, 9999999) . "_" . md5(rand(0, 9999999)) . "." . $fileExtension;
+            // Thư mục upload
+            $uploadPath = public_path('/uploads'); // Thư mục upload
+            // Bắt đầu chuyển file vào thư mục
+            $request->file('image')->move($uploadPath, $fileName);
+        }
         $data = array(
             'qr_code' => $request->input('qr_code'),
             'product_name' => $request->input('product_name'),
@@ -62,6 +73,7 @@ class TXNGController extends Controller
             'standard_applied' => $request->input('standard_applied'),
             'description_header' => $request->input('description_header'),
             'discription' => $request->input('discription'),
+            'image' => $fileName
         );
 
         $result = TXNG::create($data);
@@ -100,6 +112,19 @@ class TXNGController extends Controller
      */
     public function update(Request $request, $id)
     {
+        $txng = TXNG::find($id);
+
+        $fileName = $txng->image;
+        if ($request->hasfile('image')) {
+            // File này có thực, bắt đầu đổi tên và move
+            $fileExtension = $request->file('image')->getClientOriginalExtension(); // Lấy . của file
+            // Filename cực shock để khỏi bị trùng
+            $fileName = time() . "_" . rand(0, 9999999) . "_" . md5(rand(0, 9999999)) . "." . $fileExtension;
+            // Thư mục upload
+            $uploadPath = public_path('/uploads'); // Thư mục upload
+            // Bắt đầu chuyển file vào thư mục
+            $request->file('image')->move($uploadPath, $fileName);
+        }
         $data = array(
             'qr_code' => $request->input('qr_code'),
             'product_name' => $request->input('product_name'),
@@ -122,8 +147,8 @@ class TXNGController extends Controller
             'standard_applied' => $request->input('standard_applied'),
             'description_header' => $request->input('description_header'),
             'discription' => $request->input('discription'),
+            'image' => $fileName
         );
-        $txng = TXNG::find($id);
         $result = $txng->update($data);
         return redirect('home');
     }

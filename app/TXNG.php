@@ -29,5 +29,6 @@ class TXNG extends Model
         'standard_applied',
         'description_header',
         'discription',
+        'image'
     ];
 }

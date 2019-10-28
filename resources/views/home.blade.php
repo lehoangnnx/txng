@@ -21,6 +21,7 @@
                                 <thead>
                                 <tr class="header">
                                     <th>ID</th>
+                                    <th>Image</th>
                                     <th>QR Code</th>
                                     <th>Product Name</th>
                                     <th>MFG</th>
@@ -49,6 +50,7 @@
                                 <tbody>
                                 @foreach($txngs as $txng)
                                     <tr>
+                                        <td><td><img width="100px" height="100px" class="img-thumbnail" src="{{ asset('uploads')}}/{{ $txng->image }}"></td></td>
                                         <td>{{ $txng->id  }}</td>
                                         <td>{{ $txng->qr_code  }}</td>
                                         <td>{{ $txng->product_name  }}</td>

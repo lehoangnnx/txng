@@ -6,9 +6,8 @@
             <div class="col-md-8">
                 <div class="card">
                     <div class="card-header">Thêm</div>
-
                     <div class="card-body">
-                        <form action="{{ route('txng.store')  }}" method="POST">
+                        <form action="{{ route('txng.store')  }}" method="POST" enctype="multipart/form-data">
                             @method('POST')
                             @csrf
                             <div class="form-group">
@@ -103,6 +102,10 @@
                                 <label for="inputZip">Discription</label>
                                 <textarea class="form-control" name="discription" rows="3"
                                           placeholder="Discription"></textarea>
+                            </div>
+                            <div class="form-group">
+                                <label for="inputZip">Image</label>
+                                <input type="file" accept="image/*" name="image">
                             </div>
                             <button type="submit" class="btn btn-primary">Thêm</button>
                         </form>

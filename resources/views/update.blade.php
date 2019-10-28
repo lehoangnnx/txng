@@ -8,7 +8,7 @@
                     <div class="card-header">Sửa</div>
 
                     <div class="card-body">
-                        <form action="{{ route('txng.update', $txng->id)  }}" method="POST">
+                        <form action="{{ route('txng.update', $txng->id)  }}" method="POST" enctype="multipart/form-data">
                             @method('PUT')
                             @csrf
                             <div class="form-group">
@@ -103,6 +103,13 @@
                                 <label for="inputZip">Discription</label>
                                 <textarea class="form-control" name="discription" rows="3"
                                           placeholder="Discription">{{ $txng->discription  }}</textarea>
+                            </div>
+                            <div class="form-group">
+                                <img width="100px" height="100px" class="img-thumbnail" src="{{ asset('uploads')}}/{{ $txng->image }}">
+                            </div>
+                            <div class="form-group">
+                                <label for="inputZip">Image</label>
+                                <input type="file" accept="image/*" name="image">
                             </div>
                             <button type="submit" class="btn btn-primary">Sửa</button>
                         </form>

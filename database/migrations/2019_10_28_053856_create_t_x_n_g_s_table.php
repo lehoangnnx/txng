@@ -36,6 +36,7 @@ class CreateTXNGSTable extends Migration
             $table->text('standard_applied')->nullable();
             $table->text('description_header')->nullable();
             $table->longText('discription')->nullable();
+            $table->text('image')->nullable();
             $table->timestamps();
         });
     }
