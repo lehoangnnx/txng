@@ -12,7 +12,8 @@
 */
 
 Route::get('/', function () {
-    return redirect('login');
+    return view('welcome');
+    // return redirect('login');
 });
 
 // Authentication Routes...
@@ -24,7 +25,9 @@ Route::post('logout', 'Auth\LoginController@logout')->name('logout');
 Route::get('register', 'Auth\RegisterController@showRegistrationForm')->name('register');
 Route::post('register', 'Auth\RegisterController@register');
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/admin', 'HomeController@index')->name('home');
 Route::resource('txng', 'TXNGController');
 Route::get('/search', 'TXNGController@search')->name('search');
+Route::get('/product/{id}', 'ProductController@detailProduct')->name('detailProduct');
 
+// URL::forceScheme('https');
