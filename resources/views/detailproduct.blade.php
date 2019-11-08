@@ -85,7 +85,7 @@
 			    </tr>
 			    <tr>
 			      <td>Size</td>
-			      <td>10-13 Pcs{{ $product->size ?? '' }}</td>
+			      <td>{{ $product->size ?? '' }}</td>
 			    </tr>
 			    <tr>
 			      <td>Packing</td>

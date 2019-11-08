@@ -12,8 +12,7 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
-    // return redirect('login');
+    return redirect('index.html');
 });
 
 // Authentication Routes...
