@@ -24,9 +24,10 @@ Route::post('logout', 'Auth\LoginController@logout')->name('logout');
 Route::get('register', 'Auth\RegisterController@showRegistrationForm')->name('register');
 Route::post('register', 'Auth\RegisterController@register');
 
-Route::get('/admin', 'HomeController@index')->name('home');
+Route::get('/admin', 'HomeController@index')->name('admin');
 Route::resource('txng', 'TXNGController');
+Route::resource('certificate', 'CertificateController');
 Route::get('/search', 'TXNGController@search')->name('search');
 Route::get('/product/{id}', 'ProductController@detailProduct')->name('detailProduct');
-
+Route::get('/search/certificate', 'CertificateController@search')->name('searchCertificate');
 // URL::forceScheme('https');

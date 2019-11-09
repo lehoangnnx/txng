@@ -164,162 +164,26 @@
 		<div id="S4" class="w3-container w3-hide">
 			<div class ="containImage" style = "overflow-x:scroll;">
 				<div class="w3-content" style="max-width:1200px">
-					<div class="mySlides">
-						<img src="photos/Huuco/1.jpg" style="width:200px">
-						<div class = "imgInfo">
-							<h3><b>VietGap</b></h3>
-							<p><b>Name Of Organization:</b> 12/12/2017</p>
-							<p><b>Name Of Product: </b>Passion</p>
-							<p><b>ID Of VietGAP: </b>TCCN-VietGAP 12-12-12-2017</p>
-							<p><b>Release date: </b>12/12/2017</p>
-							<p><b>Expire date: </b>12/12/2020</p>
+					@foreach($certificate as $item)
+						<div class="mySlides">
+							<img src="{{ asset('uploads')}}/{{ $item->image }}" style="width:200px">
+							<div class = "imgInfo">
+								<h3><b>{{ $item->name  }}</b></h3>
+								<p><b>Name Of Organization:</b> 12/12/2017</p>
+								<p><b>Name Of Product: </b>Passion</p>
+								<p><b>ID Of VietGAP: </b>TCCN-VietGAP 12-12-12-2017</p>
+								<p><b>Release date: </b>12/12/2017</p>
+								<p><b>Expire date: </b>12/12/2020</p>
+							</div>
 						</div>
-					</div>
-					<div class="mySlides">
-						<img src="photos/VietGAP/1.jpg" style="width:200px">
-						<div class = "imgInfo">
-							<h3><b>VietGap</b></h3>
-							<p><b>Name Of Organization:</b> 12/12/2017</p>
-							<p><b>Name Of Product: </b>Passion</p>
-							<p><b>ID Of VietGAP: </b>TCCN-VietGAP 12-12-12-2017</p>
-							<p><b>Release date: </b>12/12/2017</p>
-							<p><b>Expire date: </b>12/12/2020</p>
-						</div>
-					</div>
-					<div class="mySlides">
-						<img src="photos/VietGAP/2.jpg" style="width:200px">
-						<div class = "imgInfo">
-							<h3><b>VietGap</b></h3>
-							<p><b>Name Of Organization:</b> 12/12/2017</p>
-							<p><b>Name Of Product: </b>Passion</p>
-							<p><b>ID Of VietGAP: </b>TCCN-VietGAP 12-12-12-2017</p>
-							<p><b>Release date: </b>12/12/2017</p>
-							<p><b>Expire date: </b>12/12/2020</p>
-						</div>
-					</div>
-					<div class="mySlides">
-						<img src="photos/VietGAP/3.jpg" style="width:200px">
-						<div class = "imgInfo">
-							<h3><b>VietGap</b></h3>
-							<p><b>Name Of Organization:</b> 12/12/2017</p>
-							<p><b>Name Of Product: </b>Passion</p>
-							<p><b>ID Of VietGAP: </b>TCCN-VietGAP 12-12-12-2017</p>
-							<p><b>Release date: </b>12/12/2017</p>
-							<p><b>Expire date: </b>12/12/2020</p>
-						</div>
-					</div>
-					<div class="mySlides">
-						<img src="photos/VietGAP/4.jpg" style="width:200px">
-						<div class = "imgInfo">
-							<h3><b>VietGap</b></h3>
-							<p><b>Name Of Organization:</b> 12/12/2017</p>
-							<p><b>Name Of Product: </b>Passion</p>
-							<p><b>ID Of VietGAP: </b>TCCN-VietGAP 12-12-12-2017</p>
-							<p><b>Release date: </b>12/12/2017</p>
-							<p><b>Expire date: </b>12/12/2020</p>
-						</div>
-					</div>
-					<div class="mySlides">
-						<img src="photos/VietGAP/6.jpg" style="width:200px">
-						<div class = "imgInfo">
-							<h3><b>VietGap</b></h3>
-							<p><b>Name Of Organization:</b> 12/12/2017</p>
-							<p><b>Name Of Product: </b>Passion</p>
-							<p><b>ID Of VietGAP: </b>TCCN-VietGAP 12-12-12-2017</p>
-							<p><b>Release date: </b>12/12/2017</p>
-							<p><b>Expire date: </b>12/12/2020</p>
-						</div>
-					</div>
-					<div class="mySlides">
-						<img src="photos/GlobalGAP/1.jpg" style="width:200px">
-						<div class = "imgInfo">
-							<h3><b>VietGap</b></h3>
-							<p><b>Name Of Organization:</b> 12/12/2017</p>
-							<p><b>Name Of Product: </b>Passion</p>
-							<p><b>ID Of VietGAP: </b>TCCN-VietGAP 12-12-12-2017</p>
-							<p><b>Release date: </b>12/12/2017</p>
-							<p><b>Expire date: </b>12/12/2020</p>
-						</div>
-					</div>
-					<div class="mySlides">
-						<img src="photos/GlobalGAP/2.JPG" style="width:200px">
-						<div class = "imgInfo">
-							<h3><b>VietGap</b></h3>
-							<p><b>Name Of Organization:</b> 12/12/2017</p>
-							<p><b>Name Of Product: </b>Passion</p>
-							<p><b>ID Of VietGAP: </b>TCCN-VietGAP 12-12-12-2017</p>
-							<p><b>Release date: </b>12/12/2017</p>
-							<p><b>Expire date: </b>12/12/2020</p>
-						</div>
-					</div>
-					<div class="mySlides">
-						<img src="photos/GlobalGAP/3.jpg" style="width:200px">
-						<div class = "imgInfo">
-							<h3><b>VietGap</b></h3>
-							<p><b>Name Of Organization:</b> 12/12/2017</p>
-							<p><b>Name Of Product: </b>Passion</p>
-							<p><b>ID Of VietGAP: </b>TCCN-VietGAP 12-12-12-2017</p>
-							<p><b>Release date: </b>12/12/2017</p>
-							<p><b>Expire date: </b>12/12/2020</p>
-						</div>
-					</div>
-					<div class="mySlides">
-						<img src="photos/GlobalGAP/4.jpg" style="width:200px">
-						<div class = "imgInfo">
-							<h3><b>VietGap</b></h3>
-							<p><b>Name Of Organization:</b> 12/12/2017</p>
-							<p><b>Name Of Product: </b>Passion</p>
-							<p><b>ID Of VietGAP: </b>TCCN-VietGAP 12-12-12-2017</p>
-							<p><b>Release date: </b>12/12/2017</p>
-							<p><b>Expire date: </b>12/12/2020</p>
-						</div>
-					</div>
-					<div class="mySlides">
-						<img src="photos/GlobalGAP/5.jpg" style="width:200px">
-						<div class = "imgInfo">
-							<h3><b>VietGap</b></h3>
-							<p><b>Name Of Organization:</b> 12/12/2017</p>
-							<p><b>Name Of Product: </b>Passion</p>
-							<p><b>ID Of VietGAP: </b>TCCN-VietGAP 12-12-12-2017</p>
-							<p><b>Release date: </b>12/12/2017</p>
-							<p><b>Expire date: </b>12/12/2020</p>
-						</div>
-					</div>
+					@endforeach
 
 					<div class="w3-row-padding w3-section">
+						@foreach($certificate as $item)
 						<div class="w3-col s1">
-							<img src="photos/Huuco/1.jpg" class="w3-hover-opacity" style="width:50px" onclick="currentDiv(1)">
+							<img src="{{ asset('uploads')}}/{{ $item->image }}" class="w3-hover-opacity" style="width:50px" onclick="currentDiv({{ $loop->index + 1  }})">
 						</div>
-						<div class="w3-col s1">
-							<img src="photos/VietGAP/1.jpg" class="w3-hover-opacity" style="width:50px" onclick="currentDiv(2)">
-						</div>
-						<div class="w3-col s1">
-							<img src="photos/VietGAP/2.jpg" class="w3-hover-opacity" style="width:50px" onclick="currentDiv(3)">
-						</div>
-						<div class="w3-col s1">
-							<img src="photos/VietGAP/3.jpg" class="w3-hover-opacity" style="width:50px" onclick="currentDiv(4)">
-						</div>
-						<div class="w3-col s1">
-							<img src="photos/VietGAP/4.jpg" class="w3-hover-opacity" style="width:50px" onclick="currentDiv(5)">
-						</div>
-						<div class="w3-col s1">
-							<img src="photos/VietGAP/6.jpg" class="w3-hover-opacity" style="width:50px" onclick="currentDiv(6)">
-						</div>
-						<div class="w3-col s1">
-							<img src="photos/GlobalGAP/1.jpg" class="w3-hover-opacity" style="width:50px" onclick="currentDiv(7)">
-						</div>
-						<div class="w3-col s1">
-							<img src="photos/GlobalGAP/2.JPG" class="w3-hover-opacity" style="width:50px" onclick="currentDiv(8)">
-						</div>
-						<div class="w3-col s1">
-							<img src="photos/GlobalGAP/3.jpg" class="w3-hover-opacity" style="width:50px" onclick="currentDiv(9)">
-						</div>
-						<div class="w3-col s1">
-							<img src="photos/GlobalGAP/4.jpg" class="w3-hover-opacity" style="width:50px" onclick="currentDiv(10)">
-						</div>
-						<div class="w3-col s1">
-							<img src="photos/GlobalGAP/5.jpg" class="w3-hover-opacity" style="width:50px" onclick="currentDiv(11)">
-						</div>
+						@endforeach
 					</div>
 				</div>
 			</div>

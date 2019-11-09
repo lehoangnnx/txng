@@ -5,13 +5,13 @@
         <div class="row justify-content-center">
             <div class="col-md-12">
                 <div class="card">
-                    <div class="card-header">Dashboard</div>
+                    <div class="card-header">Product</div>
 
                     <div class="card-body">
                         <div class="mt-2">
                             <form action="{{ route('search') }}" method="GET">
                                 <input style="width: 60%" name="key" value="{{ app('request')->input('key')  }}" type="text" id="myInput" placeholder="Tìm Kiếm Theo QR Code, Product Name, Create Date">
-                                <a href="{{ route('home')  }}" class="btn btn-info">Hủy</a>
+                                <a href="{{ route('admin')  }}" class="btn btn-info">Hủy</a>
                             </form>
                             <a href="{{ route('txng.create')  }}" class="btn btn-success mb-3 mt-4">Thêm</a>
                         </div>
@@ -77,6 +77,52 @@
                                         <td>
                                             <a href="{{ route('txng.edit', $txng->id )  }}" class="btn btn-info">Sửa</a>
                                             <form action="{{ route('txng.destroy', $txng->id )  }}" method="POST" onsubmit="return ConfirmDelete();">
+                                                @csrf
+                                                @method('DELETE')
+                                                <button type="submit" class="btn btn-danger" >Xóa</button>
+                                            </form>
+                                        </td>
+                                    </tr>
+                                @endforeach
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-12 mt-5">
+                <div class="card">
+                    <div class="card-header">Certificate</div>
+
+                    <div class="card-body">
+                        <div class="mt-2">
+                            <form action="{{ route('searchCertificate') }}" method="GET">
+                                <input style="width: 60%" name="keyc" value="{{ app('request')->input('keyc')  }}" type="text" id="myInput" placeholder="Tìm Kiếm Theo Name">
+                                <a href="{{ route('admin')  }}" class="btn btn-info">Hủy</a>
+                            </form>
+                            <a href="{{ route('certificate.create')  }}" class="btn btn-success mb-3 mt-4">Thêm</a>
+                        </div>
+                        <div class="row justify-content-center table-responsive">
+
+                            <table class="table table-hover">
+                                <thead>
+                                <tr class="header">
+                                    <th>ID</th>
+                                    <th>Image</th>
+                                    <th>Name</th>
+                                    <th>Thao Tác</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                @foreach($certificate as $item)
+                                    <tr>
+                                        <td>{{ $item->id  }}</td>
+                                        <td><img width="100px" height="100px" class="img-thumbnail" src="{{ asset('uploads')}}/{{ $item->image }}"></td>
+                                        <td>{{ $item->name  }}</td>
+                                        <td>
+                                            <a href="{{ route('certificate.edit', $item->id )  }}" class="btn btn-info">Sửa</a>
+                                            <form action="{{ route('certificate.destroy', $item->id )  }}" method="POST" onsubmit="return ConfirmDelete();">
                                                 @csrf
                                                 @method('DELETE')
                                                 <button type="submit" class="btn btn-danger" >Xóa</button>

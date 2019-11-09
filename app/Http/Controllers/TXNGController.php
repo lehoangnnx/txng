@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Certificate;
 use App\TXNG;
 use Illuminate\Http\Request;
 
@@ -77,7 +78,7 @@ class TXNGController extends Controller
         );
 
         $result = TXNG::create($data);
-        return redirect('home');
+        return redirect('admin');
     }
 
     /**
@@ -150,7 +151,7 @@ class TXNGController extends Controller
             'image' => $fileName
         );
         $result = $txng->update($data);
-        return redirect('home');
+        return redirect('admin');
     }
 
     /**
@@ -162,16 +163,18 @@ class TXNGController extends Controller
     public function destroy($id)
     {
         $result = TXNG::destroy($id);
-        return redirect('home');
+        return redirect('admin');
     }
 
     public function search(Request $request){
         $key = $request->input('key');
+        $certificate = Certificate::all();
         $result = TXNG::where('qr_code', 'like', '%' . $key . '%')
         ->orWhere('product_name', 'like', '%' . $key . '%')
         ->orWhereDate('created_at', 'like', '%' . $key . '%')->get();
         return view('home')
-            ->with('txngs', $result);
+            ->with('txngs', $result)
+            ->with('certificate', $certificate);
     }
 
 }

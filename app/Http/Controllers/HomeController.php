@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Certificate;
 use App\TXNG;
 use Illuminate\Http\Request;
 
@@ -25,7 +26,8 @@ class HomeController extends Controller
     public function index()
     {
         $txngs = TXNG::all();
+        $certificate = Certificate::all();
         return view('home')
-            ->with('txngs', $txngs);
+            ->with('txngs', $txngs)->with('certificate', $certificate);
     }
 }
