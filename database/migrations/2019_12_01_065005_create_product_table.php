@@ -22,6 +22,9 @@ class CreateProductTable extends Migration
             $table->text('exp')->nullable();
             $table->text('size')->nullable();
             $table->text('packing')->nullable();
+            $table->longText('storage_advice')->nullable();
+            $table->longText('packaging_factory')->nullable();
+            $table->text('description_header')->nullable();
             $table->text('description')->nullable();
             $table->timestamps();
         });

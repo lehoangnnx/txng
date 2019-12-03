@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Product extends Model
 {
+    protected $table = 'product';
     protected $fillable = [
         'id',
         'planting_area_id',
@@ -15,6 +16,9 @@ class Product extends Model
         'exp',
         'size',
         'packing',
+        'storage_advice',
+        'packaging_factory',
+        'description_header',
         'description',
     ];
 }

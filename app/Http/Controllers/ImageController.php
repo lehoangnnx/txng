@@ -1,33 +1,22 @@
 <?php
 
 namespace App\Http\Controllers;
-use App\Company;
 use App\Image;
-use App\PlantingArea;
 use App\Product;
 use App\TXNG;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
-class ProductController extends Controller
+class ImageController extends Controller
 {
     public function __construct()
     {
         $this->middleware('auth');
     }
 
-    public function detailProduct($id) {
-        $product =  Product::find($id);
-        $company = Company::first();
-        $palntingarea = PlantingArea::find(@$product->planting_area_id);
-        $imagesCompany = Image::where('type', 'company')->get();
-        $imagesPlantingArea = Image::where('type', 'plantingarea')->where('foreign_id', @$palntingarea->id)->get();
-        $imagesProduct = Image::where('type', 'product')->where('foreign_id', @$product->id)->get();
-        return view('detailproduct')->with('product', $product )
-            ->with('company', $company)->with('palntingarea', $palntingarea)
-            ->with('imagesCompany', $imagesCompany)
-            ->with('imagesPlantingArea', $imagesPlantingArea)
-            ->with('imagesProduct', $imagesProduct);
+    public function deleteImage($id) {
+        $product =  Image::destroy($id);
+        return redirect()->back();
     }
 
     /**
@@ -39,12 +28,10 @@ class ProductController extends Controller
     {
         $products = Product::all();
         $images = Image::where('type', 'product')->get();
-        $plantingareas = PlantingArea::all();
         $image_certificates = Image::where('type', 'product_certificate')->get();
         return view('list-product')->with('products', $products)
             ->with('images', $images)
-            ->with('image_certificates', $image_certificates)
-            ->with('plantingareas', $plantingareas);
+            ->with('image_certificates', $image_certificates);
 
     }
 
@@ -55,8 +42,7 @@ class ProductController extends Controller
      */
     public function create()
     {
-        $plantingareas = PlantingArea::all();
-        return view('create-product')->with('plantingareas', $plantingareas);
+        return view('create-product');
     }
 
     /**
@@ -75,11 +61,7 @@ class ProductController extends Controller
             'exp' => $request->input('exp'),
             'size' => $request->input('size'),
             'packing' => $request->input('packing'),
-            'storage_advice' => $request->input('storage_advice'),
-            'packaging_factory' => $request->input('packaging_factory'),
-            'description_header' => $request->input('description_header'),
             'description' => $request->input('description'),
-            'planting_area_id' => $request->input('planting_area_id')
         );
         $product = Product::create($data);
         if ($request->hasfile('image')) {
@@ -131,11 +113,9 @@ class ProductController extends Controller
         $product = Product::find($id);
         $images = Image::where('type', 'product')->where('foreign_id', $id)->get();
         $image_certificates = Image::where('type', 'product_certificate')->where('foreign_id', $id)->get();
-        $plantingareas = PlantingArea::all();
         return view('update-product')->with('product', $product)
             ->with('images', $images)
-            ->with('image_certificates', $image_certificates)
-            ->with('plantingareas', $plantingareas);
+            ->with('image_certificates', $image_certificates);
     }
 
     /**
@@ -156,11 +136,7 @@ class ProductController extends Controller
             'exp' => $request->input('exp'),
             'size' => $request->input('size'),
             'packing' => $request->input('packing'),
-            'storage_advice' => $request->input('storage_advice'),
-            'packaging_factory' => $request->input('packaging_factory'),
-            'description_header' => $request->input('description_header'),
             'description' => $request->input('description'),
-            'planting_area_id' => $request->input('planting_area_id')
         );
         $result = $product->update($data);
         if ($request->hasfile('image')) {
@@ -187,7 +163,7 @@ class ProductController extends Controller
                 $image->save();
             }
         }
-        return redirect('list/product');
+        return redirect('admin');
     }
 
     /**
@@ -198,25 +174,18 @@ class ProductController extends Controller
      */
     public function destroy($id)
     {
-        $result = Product::destroy($id);
-        Image::where(function($q) {
-            $q->where('type', 'product_certificate')
-                ->orWhere('type', 'product');
-        })->where('foreign_id', $id)->delete();
-        return redirect('list/product');
+        $result = Image::destroy($id);
+        return redirect()->back();
     }
 
     public function search(Request $request){
         $key = $request->input('key');
-        $result = Product::where('code', 'like', '%' . $key . '%')
-            ->orWhere('name', 'like', '%' . $key . '%')
+        $certificate = Certificate::all();
+        $result = TXNG::where('qr_code', 'like', '%' . $key . '%')
+            ->orWhere('product_name', 'like', '%' . $key . '%')
             ->orWhereDate('created_at', 'like', '%' . $key . '%')->get();
-        $images = Image::where('type', 'product')->get();
-        $image_certificates = Image::where('type', 'product_certificate')->get();
-        $plantingareas = PlantingArea::all();
-        return view('list-product')->with('products', $result)
-            ->with('images', $images)
-            ->with('image_certificates', $image_certificates)
-            ->with('plantingareas', $plantingareas);
+        return view('home')
+            ->with('txngs', $result)
+            ->with('certificate', $certificate);
     }
 }

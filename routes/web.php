@@ -24,12 +24,27 @@ Route::post('logout', 'Auth\LoginController@logout')->name('logout');
 Route::get('register', 'Auth\RegisterController@showRegistrationForm')->name('register');
 Route::post('register', 'Auth\RegisterController@register');
 
-Route::get('/admin', 'HomeController@index')->name('admin');
+Route::get('/admin', 'ProductController@index')->name('admin');
 Route::resource('txng', 'TXNGController');
 Route::resource('certificate', 'CertificateController');
-Route::get('/search', 'TXNGController@search')->name('search');
+
 Route::get('product-detail/{id}', 'ProductController@detailProduct')->name('detailProduct');
 Route::resource('product', 'ProductController');
+Route::resource('image', 'ImageController');
+Route::resource('company', 'CompanyController');
+Route::resource('plantingarea', 'PlantingAreaController');
+Route::get('delete/image/{id}', 'ImageController@deleteImage');
+
+Route::get('list/product', 'ProductController@index')->name('list.product');
+Route::get('list/company', 'CompanyController@index')->name('list.company');
+Route::get('list/plantingarea', 'PlantingAreaController@index')->name('list.plantingarea');
+
+Route::get('/searchproduct', 'ProductController@search')->name('searchproduct');
+Route::get('/searchcompany', 'CompanyController@search')->name('searchcompany');
+Route::get('/searchplantingarea', 'PlantingAreaController@search')->name('searchplantingarea');
+
+Route::get('/changepassword', 'HomeController@changepasswordForm')->name('changepasswordForm');
+Route::post('/changePassword','HomeController@changePassword')->name('changePassword');
 
 Route::get('/search/certificate', 'CertificateController@search')->name('searchCertificate');
 // URL::forceScheme('https');

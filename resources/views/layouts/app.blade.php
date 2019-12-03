@@ -56,6 +56,29 @@
         #myTable tr:hover {
             background-color: #f1f1f1;
         }
+        .thumbnail {
+            width:100px;
+            height:100px;
+            position:relative;
+        }
+
+        .thumbnail img {
+            max-width:100%;
+            max-height:100%;
+        }
+
+        .thumbnail .button_x {
+            display:block;
+            width:15px;
+            height:20px;
+            position:absolute;
+            top:5px;
+            right:5px;
+            /*background:#c00;*/
+            overflow:hidden;
+            /*text-indent:9999px;*/
+
+        }
     </style>
 </head>
 
@@ -75,7 +98,18 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav mr-auto">
-
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('list.product') }}">Product</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('list.company') }}">Company</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('list.plantingarea') }}">Planting Area</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('changepasswordForm') }}">Đổi Mật Khẩu</a>
+                        </li>
                     </ul>
 
                     <!-- Right Side Of Navbar -->
