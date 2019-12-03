@@ -28,6 +28,8 @@ Route::get('/admin', 'HomeController@index')->name('admin');
 Route::resource('txng', 'TXNGController');
 Route::resource('certificate', 'CertificateController');
 Route::get('/search', 'TXNGController@search')->name('search');
-Route::get('/product/{id}', 'ProductController@detailProduct')->name('detailProduct');
+Route::get('product-detail/{id}', 'ProductController@detailProduct')->name('detailProduct');
+Route::resource('product', 'ProductController');
+
 Route::get('/search/certificate', 'CertificateController@search')->name('searchCertificate');
 // URL::forceScheme('https');
