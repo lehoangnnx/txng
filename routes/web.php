@@ -28,7 +28,7 @@ Route::get('/admin', 'ProductController@index')->name('admin');
 Route::resource('txng', 'TXNGController');
 Route::resource('certificate', 'CertificateController');
 
-Route::get('product-detail/{id}', 'ProductController@detailProduct')->name('detailProduct');
+Route::get('product-detail/{id}', 'ProductFrontController@detailProduct')->name('detailProduct');
 Route::resource('product', 'ProductController');
 Route::resource('image', 'ImageController');
 Route::resource('company', 'CompanyController');
