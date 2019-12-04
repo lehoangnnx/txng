@@ -56,7 +56,7 @@
 <div class="w3-container w3-cell-row w3-light-white w3-hide-small">
     <div class="w3-container w3-cell">
         <div id="id_qrcode" style="margin-right: auto;margin-left: auto; width: 100px"></div>
-        <img src="{{ asset('uploads')}}/{{ $company->logo }}" style="width:30%">
+        <img src="{{ url('/public/uploads')}}/{{ $company->logo }}" style="width:30%">
         <h5><b>{{ $company->name }}</b></h5>
     </div>
 </div>
@@ -183,8 +183,8 @@
             @foreach($imagesProduct as $item)
                 <div class="col-md-4">
                     <div class="thumbnail">
-                        <a href="{{ asset('uploads')}}/{{ $item->url }}" target="_blank">
-                            <img src="{{ asset('uploads')}}/{{ $item->url }}" alt="Lights" style="width:100%">
+                        <a href="{{ url('/public/uploads')}}/{{ $item->url }}" target="_blank">
+                            <img src="{{ url('/public/uploads')}}/{{ $item->url }}" alt="Lights" style="width:100%">
                         </a>
                     </div>
                 </div>
@@ -198,8 +198,8 @@
             @foreach($imagesPlantingArea as $item)
                 <div class="col-md-4">
                     <div class="thumbnail">
-                        <a href="{{ asset('uploads')}}/{{ $item->url }}" target="_blank">
-                            <img src="{{ asset('uploads')}}/{{ $item->url }}" alt="Lights" style="width:100%">
+                        <a href="{{ url('/public/uploads')}}/{{ $item->url }}" target="_blank">
+                            <img src="{{ url('/public/uploads')}}/{{ $item->url }}" alt="Lights" style="width:100%">
                         </a>
                     </div>
                 </div>
@@ -213,8 +213,8 @@
             @foreach($imagesCompany as $item)
                 <div class="col-md-4">
                     <div class="thumbnail">
-                        <a href="{{ asset('uploads')}}/{{ $item->url }}" target="_blank">
-                            <img src="{{ asset('uploads')}}/{{ $item->url }}" alt="Lights" style="width:100%">
+                        <a href="{{ url('/public/uploads')}}/{{ $item->url }}" target="_blank">
+                            <img src="{{ url('/public/uploads')}}/{{ $item->url }}" alt="Lights" style="width:100%">
                         </a>
                     </div>
                 </div>

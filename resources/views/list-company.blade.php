@@ -40,8 +40,8 @@
                                     <tr>
                                         <td>{{ $item->id  }}</td>
                                         <td>{{ $item->name  }}</td>
-                                        <td> <img width="100px" height="100px" class="img-thumbnail"
-                                                  src="{{ asset('uploads')}}/{{ $item->logo }}"></td>
+                                        <td> <img width="100px" height="100px" class="img-thumbnail" onclick="showImg(this.src);"
+                                                  src="{{ url('/public/uploads')}}/{{ $item->logo }}"></td>
                                         <td>{{ $item->address  }}</td>
                                         <td>{{ $item->location  }}</td>
                                         <td>{{ $item->country  }}</td>
@@ -52,8 +52,8 @@
                                         <td>
                                             @foreach($images as $image)
                                                 @if( $item->id == $image->foreign_id )
-                                                    <img width="100px" height="100px" class="img-thumbnail"
-                                                         src="{{ asset('uploads')}}/{{ $image->url }}">
+                                                    <img width="100px" height="100px" class="img-thumbnail" onclick="showImg(this.src);"
+                                                         src="{{ url('/public/uploads')}}/{{ $image->url }}">
                                                 @endif
                                             @endforeach
                                         </td>

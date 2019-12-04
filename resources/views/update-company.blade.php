@@ -5,7 +5,7 @@
         <div class="row justify-content-center">
             <div class="col-md-8">
                 <div class="card">
-                    <div class="card-header">Thêm Company</div>
+                    <div class="card-header">Sửa Company</div>
                     <div class="card-body">
                         <form action="{{ route('company.update',  $company->id)  }}" method="POST" enctype="multipart/form-data">
                             @method('PUT')
@@ -15,7 +15,7 @@
                                 <input type="text" value="{{ $company->name  }}" name="name" class="form-control" placeholder="Name">
                             </div>
                             <div class="form-group">
-                                <img width="100px" height="100px" class="img-thumbnail" src="{{ asset('uploads')}}/{{ $company->logo }}">
+                                <img width="100px" height="100px" class="img-thumbnail" onclick="showImg(this.src);" src="{{ url('/public/uploads')}}/{{ $company->logo }}">
                             </div>
                             <div class="form-group">
                                 <label for="inputZip">Logo</label>
@@ -53,8 +53,8 @@
                                 @foreach($images as $image)
                                     @if( $company->id == $image->foreign_id )
                                         <div class="thumbnail">
-                                            <img width="100px" height="100px" class="img-thumbnail"
-                                                 src="{{ asset('uploads')}}/{{ $image->url }}"/>
+                                            <img width="100px" height="100px" class="img-thumbnail" onclick="showImg(this.src);"
+                                                 src="{{ url('/public/uploads')}}/{{ $image->url }}"/>
                                             <a href="/delete/image/{{$image->id}}" class="close button_x" onclick="return ConfirmDelete();">X</a>
                                         </div>
                                     @endif

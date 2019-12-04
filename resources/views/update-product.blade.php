@@ -79,8 +79,8 @@
                                 @foreach($images as $image)
                                     @if( $product->id == $image->foreign_id )
                                         <div class="thumbnail">
-                                            <img width="100px" height="100px" class="img-thumbnail"
-                                                 src="{{ asset('uploads')}}/{{ $image->url }}"/>
+                                            <img width="100px" height="100px" class="img-thumbnail" onclick="showImg(this.src);"
+                                                 src="{{ url('/public/uploads')}}/{{ $image->url }}"/>
                                             <a href="/delete/image/{{$image->id}}" class="close button_x" onclick="return ConfirmDelete();">X</a>
                                         </div>
                                     @endif
@@ -94,8 +94,8 @@
                                 @foreach($image_certificates as $image_certificate)
                                     @if( $product->id == $image_certificate->foreign_id )
                                         <div class="thumbnail">
-                                            <img width="100px" height="100px" class="img-thumbnail"
-                                                 src="{{ asset('uploads')}}/{{ $image_certificate->url }}"/>
+                                            <img width="100px" height="100px" class="img-thumbnail" onclick="showImg(this.src);"
+                                                 src="{{ url('/public/uploads')}}/{{ $image_certificate->url }}"/>
                                             <a href="/delete/image/{{$image_certificate->id}}" class="close button_x" onclick="return ConfirmDelete();">X</a>
                                         </div>
                                     @endif

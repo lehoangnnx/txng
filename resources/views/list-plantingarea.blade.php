@@ -41,8 +41,8 @@
                                         <td>
                                             @foreach($images as $image)
                                                 @if( $item->id == $image->foreign_id )
-                                                    <img width="100px" height="100px" class="img-thumbnail"
-                                                         src="{{ asset('uploads')}}/{{ $image->url }}">
+                                                    <img width="100px" height="100px" class="img-thumbnail" onclick="showImg(this.src);"
+                                                         src="{{ url('/public/uploads')}}/{{ $image->url }}">
                                                 @endif
                                             @endforeach
                                         </td>
