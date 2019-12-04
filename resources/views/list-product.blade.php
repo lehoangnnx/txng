@@ -76,6 +76,8 @@
                                             @endforeach
                                         </td>
                                         <td>
+                                            <a href="/product-detail/{{ $item->id }}" target="_blank"
+                                               class="btn btn-success">Xem</a>
                                             <a href="{{ route('product.edit', $item->id )  }}"
                                                class="btn btn-info">Sửa</a>
                                             <form action="{{ route('product.destroy', $item->id )  }}" method="POST"
