@@ -69,13 +69,15 @@
 
         .thumbnail .button_x {
             display:block;
-            width:15px;
+            width:20px;
             height:20px;
             position:absolute;
-            top:5px;
-            right:5px;
+            top:0px;
+            right:-5px;
             /*background:#c00;*/
             overflow:hidden;
+            color: red;
+            font-size: 15px;
             /*text-indent:9999px;*/
 
         }
@@ -176,6 +178,7 @@
 
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
+                    @if (Auth::check())
                     <ul class="navbar-nav mr-auto">
                         <li class="nav-item">
                             <a class="nav-link" href="{{ route('list.product') }}">Product</a>
@@ -190,7 +193,7 @@
                             <a class="nav-link" href="{{ route('changepasswordForm') }}">Đổi Mật Khẩu</a>
                         </li>
                     </ul>
-
+                    @endif
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ml-auto">
                         <!-- Authentication Links -->
